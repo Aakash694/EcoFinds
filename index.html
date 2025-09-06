@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFinds - Buy & Sell Sustainably</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-leaf"></i> EcoFinds</h1>
+                </div>
+                <div class="search-container">
+                    <div class="location-selector">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select id="locationSelect">
+                            <option value="all">All India</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="bangalore">Bangalore</option>
+                            <option value="pune">Pune</option>
+                            <option value="chennai">Chennai</option>
+                            <option value="hyderabad">Hyderabad</option>
+                            <option value="kolkata">Kolkata</option>
+                        </select>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Find Cars, Phones, Electronics and more...">
+                        <button id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="sell-btn" id="sellBtn">
+                        <i class="fas fa-plus"></i>
+                        SELL
+                    </button>
+                    <button class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-categories">
+        <div class="container">
+            <div class="category-nav" id="categoryNav">
+                <button class="category-btn active" data-category="all">All Categories</button>
+                <button class="category-btn" data-category="cars">Cars</button>
+                <button class="category-btn" data-category="mobiles">Mobiles</button>
+                <button class="category-btn" data-category="electronics">Electronics</button>
+                <button class="category-btn" data-category="furniture">Furniture</button>
+                <button class="category-btn" data-category="fashion">Fashion</button>
+                <button class="category-btn" data-category="real-estate">Properties</button>
+                <button class="category-btn" data-category="books">Books</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Home View -->
+            <div id="homeView" class="view active">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <h2>Turn your unused items into cash!</h2>
+                    <p>Buy and sell second-hand goods sustainably on EcoFinds</p>
+                </section>
+
+                <!-- Categories Grid -->
+                <section class="categories-section">
+                    <h2>Browse Categories</h2>
+                    <div class="categories-grid">
+                        <div class="category-card" data-category="cars">
+                            <div class="category-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h3>Cars</h3>
+                            <p>Used cars & vehicles</p>
+                            <span class="item-count" data-category-count="cars">0 ads</span>
+                        </div>
+                        <div class="category-card" data-category="mobiles">
+                            <div class="category-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobiles</h3>
+                            <p>Smartphones & tablets</p>
+                            <span class="item-count" data-category-count="mobiles">0 ads</span>
+                        </div>
+                        <div class="category-card" data-category="electronics">
+                            <div class="category-icon">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3>Electronics</h3>
+                            <p>Gadgets & appliances</p>
+                            <span class="item-count" data-category-count="electronics">0 ads</span>
+                        </div>
+                        <div class="category-card" data-category="furniture">
+                            <div class="category-icon">
+                                <i class="fas fa-couch"></i>
+                            </div>
+                            <h3>Furniture</h3>
+                            <p>Home & office furniture</p>
+                            <span class="item-count" data-category-count="furniture">0 ads</span>
+                        </div>
+                        <div class="category-card" data-category="fashion">
+                            <div class="category-icon">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <h3>Fashion</h3>
+                            <p>Clothing & accessories</p>
+                            <span class="item-count" data-category-count="fashion">0 ads</span>
+                        </div>
+                        <div class="category-card" data-category="real-estate">
+                            <div class="category-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Properties</h3>
+                            <p>Houses & apartments</p>
+                            <span class="item-count" data-category-count="real-estate">0 ads</span>
+                        </div>
+                        <div class="category-card" data-category="books">
+                            <div class="category-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Books</h3>
+                            <p>Educational & novels</p>
+                            <span class="item-count" data-category-count="books">0 ads</span>
+                        </div>
+                        <div class="category-card" data-category="sports">
+                            <div class="category-icon">
+                                <i class="fas fa-football-ball"></i>
+                            </div>
+                            <h3>Sports</h3>
+                            <p>Sports & fitness</p>
+                            <span class="item-count" data-category-count="sports">0 ads</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Listings -->
+                <section class="listings-section">
+                    <div class="section-header">
+                        <h2>Fresh recommendations</h2>
+                        <button class="view-all-btn" id="viewAllBtn">View all</button>
+                    </div>
+                    <div class="listings-grid" id="listingsGrid">
+                        <!-- Listings will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Listings View -->
+            <div id="listingsView" class="view">
+                <div class="listings-header">
+                    <h2 id="listingsTitle">All Listings</h2>
+                    <div class="results-count" id="resultsCount">0 results</div>
+                </div>
+                <div class="filters-container">
+                    <div class="filters">
+                        <select id="sortSelect">
+                            <option value="newest">Newest first</option>
+                            <option value="oldest">Oldest first</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                        </select>
+                        <div class="price-filter">
+                            <input type="number" id="minPrice" placeholder="Min Price (₹)">
+                            <input type="number" id="maxPrice" placeholder="Max Price (₹)">
+                            <button id="applyFilters">Apply</button>
+                            <button id="clearFilters">Clear</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="listings-grid" id="filteredListingsGrid">
+                    <!-- Filtered listings will be populated here -->
+                </div>
+            </div>
+
+            <!-- Listing Detail View -->
+            <div id="detailView" class="view">
+                <button class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <div class="listing-detail" id="listingDetail">
+                    <!-- Listing details will be populated here -->
+                </div>
+            </div>
+
+            <!-- Sell Form View -->
+            <div id="sellView" class="view">
+                <div class="sell-form-container">
+                    <div class="form-header">
+                        <h2><i class="fas fa-plus-circle"></i> POST YOUR AD</h2>
+                        <p>Reach millions of buyers across India</p>
+                    </div>
+                    <form id="sellForm" class="sell-form">
+                        <div class="form-section">
+                            <label class="form-label">
+                                <i class="fas fa-tags"></i> CHOOSE A CATEGORY *
+                            </label>
+                            <select id="sellCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="cars">Cars</option>
+                                <option value="mobiles">Mobiles</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="furniture">Furniture</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="real-estate">Properties</option>
+                                <option value="books">Books</option>
+                                <option value="sports">Sports</option>
+                            </select>
+                        </div>
+
+                        <div class="form-section">
+                            <label class="form-label">
+                                <i class="fas fa-edit"></i> INCLUDE SOME DETAILS *
+                            </label>
+                            <input type="text" id="sellTitle" placeholder="Mention the key features (e.g. brand, model, age)" required maxlength="100">
+                            <div class="char-count">
+                                <span id="titleCharCount">0</span>/100
+                            </div>
+                            <textarea id="sellDescription" placeholder="Include condition, features and reason for selling" required maxlength="500"></textarea>
+                            <div class="char-count">
+                                <span id="descCharCount">0</span>/500
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <label class="form-label">
+                                <i class="fas fa-rupee-sign"></i> SET A PRICE *
+                            </label>
+                            <input type="number" id="sellPrice" placeholder="₹ Enter price" required min="1">
+                            <div class="price-tips">
+                                <small>💡 Research similar items to set a competitive price</small>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <label class="form-label">
+                                <i class="fas fa-camera"></i> UPLOAD PHOTOS
+                            </label>
+                            <div class="photo-upload-area" id="photoUploadArea">
+                                <input type="file" id="sellPhotos" accept="image/*" multiple>
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Add up to 12 photos</p>
+                                    <small>Get up to 3x more responses with good photos</small>
+                                </div>
+                            </div>
+                            <div class="photo-preview" id="photoPreview"></div>
+                        </div>
+
+                        <div class="form-section">
+                            <label class="form-label">
+                                <i class="fas fa-map-marker-alt"></i> CONFIRM YOUR LOCATION *
+                            </label>
+                            <select id="sellLocation" required>
+                                <option value="">Choose your city</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="bangalore">Bangalore</option>
+                                <option value="pune">Pune</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="hyderabad">Hyderabad</option>
+                                <option value="kolkata">Kolkata</option>
+                            </select>
+                        </div>
+
+                        <div class="form-section">
+                            <label class="form-label">
+                                <i class="fas fa-user"></i> REVIEW YOUR CONTACT DETAILS *
+                            </label>
+                            <input type="text" id="sellName" placeholder="Your name" required maxlength="50">
+                            <input type="tel" id="sellPhone" placeholder="Phone number (10 digits)" required pattern="[0-9]{10}">
+                            <div class="contact-tips">
+                                <small>📞 Your contact details will be visible to interested buyers</small>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" id="cancelSell" class="cancel-btn">Cancel</button>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Post now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>POPULAR CATEGORIES</h4>
+                    <ul>
+                        <li><a href="#" data-category="cars">Cars</a></li>
+                        <li><a href="#" data-category="mobiles">Mobiles</a></li>
+                        <li><a href="#" data-category="electronics">Electronics</a></li>
+                        <li><a href="#" data-category="furniture">Furniture</a></li>
+                        <li><a href="#" data-category="fashion">Fashion</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>POPULAR LOCATIONS</h4>
+                    <ul>
+                        <li><a href="#" data-location="mumbai">Mumbai</a></li>
+                        <li><a href="#" data-location="delhi">Delhi</a></li>
+                        <li><a href="#" data-location="bangalore">Bangalore</a></li>
+                        <li><a href="#" data-location="pune">Pune</a></li>
+                        <li><a href="#" data-location="chennai">Chennai</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>HELP & SUPPORT</h4>
+                    <ul>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Safety tips</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">How to sell fast</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>FOLLOW US</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="app-badges">
+                        <small>Download the app</small>
+                        <a href="#" class="app-badge">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                        <a href="#" class="app-badge">
+                            <i class="fab fa-app-store"></i> App Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EcoFinds. All rights reserved. | <a href="#">Terms of use</a> | <a href="#">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Success!</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>
